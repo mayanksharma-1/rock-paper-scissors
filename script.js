@@ -54,5 +54,42 @@ function playRound(playerChoice,computerChoice) {
     else if(computerChoice == 'paper' && playerChoice == 'scissors'){
         return "player wins";
   }
+  else if(computerChoice == 'paper' && playerChoice == 'scissors'){
+    return "player wins";
 }
-console.log(playRound(getPlayerChoice(),getComputerChoice()));
+}
+
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    let drawScore = 0;
+    for (let i =0;i<5;i++){
+        let playerChoice = getPlayerChoice();
+        let computerChoice = getComputerChoice();
+        console.log(playRound(playerChoice,computerChoice));
+        if (playRound(playerChoice,computerChoice) == "player wins"){
+            playerScore += 1;
+        }
+        else if(playRound(playerChoice,computerChoice) == "computer wins"){
+            computerScore += 1;
+        }
+        else if(playRound(playerChoice,computerChoice) == "It's a Draw "){
+            drawScore +=1;
+        }
+        else{
+            console.log('Try again round not counted because of error');
+            i -= 1;
+        }
+    }
+    if (playerScore>computerScore){
+        console.log('Player wins the best of five');
+    }
+    else if(computerScore>playerScore){
+        console.log('Computer wins the best of five');
+    }
+    else if(playerScore==computerScore){
+        console.log('The best of five is a Draw')
+    }
+}
+
+game();
