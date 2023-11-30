@@ -13,7 +13,7 @@ function playRound(playerChoice,computerChoice) {
         return "It's a Draw ";
     }
     else if(computerChoice == 'scissors' && playerChoice == 'rock'){
-        return "Player wins";
+        return "player wins";
     }
     else if(computerChoice == 'paper' && playerChoice == 'rock'){
         return "computer wins";
@@ -34,17 +34,52 @@ function playRound(playerChoice,computerChoice) {
     return "player wins";
 }
 }
-
+function updateScore(result,score){
+    let round = document.querySelector(".round");
+    let playerScore = document.querySelector(".playerscore");
+    let computerScore = document.querySelector(".computerscore");
+    if (score.round>4){
+        round.innerText = "GAME IS OVER REFRESH TO RESTART";
+        return;
+    }
+    if(result=="player wins"){
+        score.round += 1;
+        score.player += 1;
+        round.innerText = `Round: ${score.round}`;
+        playerScore.innerText = `Player: ${score.player}`;
+        return score;
+    }
+    else if (result=="computer wins"){
+        score.round += 1;
+        score.computer += 1;
+        round.innerText = `Round: ${score.round}`;
+        computerScore.innerText = `Computer: ${score.computer}`;
+        return score;
+    }
+    else{
+        score.round += 1;
+        round.innerText = `Round: ${score.round}`;
+        return score;
+    }
+}
 function game(){
         const buttons = document.querySelectorAll(".button");
         let playerChoice = '';
+        let score = {
+            player : 0,
+            computer :0,
+            round:1,
+        };
+
         buttons.forEach((button)=>{
             button.addEventListener('click',event=>{playerChoice = event.target.id;
                 let computerChoice = getComputerChoice();     
                 answerDiv = document.querySelector('.answer');
-                answerDiv.innerHTML = playRound(playerChoice,computerChoice);
+                let result = playRound(playerChoice,computerChoice);
+                answerDiv.innerHTML = result;
+                score = updateScore(result,score);
             });
         });
     }
 
-game();
+game()
