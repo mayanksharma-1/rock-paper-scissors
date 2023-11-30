@@ -40,6 +40,10 @@ function updateScore(result,score){
     let computerScore = document.querySelector(".computerscore");
     if (score.round>4){
         round.innerText = "GAME IS OVER REFRESH TO RESTART";
+        let resultDiv = document.querySelector('.result');
+        let parentElement = resultDiv.parentNode;
+        parentElement.removeChild(resultDiv);
+
         return;
     }
     if(result=="player wins"){
@@ -74,10 +78,10 @@ function game(){
         buttons.forEach((button)=>{
             button.addEventListener('click',event=>{playerChoice = event.target.id;
                 let computerChoice = getComputerChoice();     
-                answerDiv = document.querySelector('.answer');
+                let resultDiv = document.querySelector('.result');
                 let result = playRound(playerChoice,computerChoice);
-                answerDiv.innerHTML = result;
                 score = updateScore(result,score);
+                resultDiv.innerHTML = result;
             });
         });
     }
