@@ -1,6 +1,6 @@
 # Rock Paper Scissors
-this project was made using javascript GUI is in progress
+This project was made using HTML CSS and Javascript.
 
-currently, you can only play the game in the js console of the webpage
-[![Image from Gyazo](https://i.gyazo.com/dab29553599a1366a9e573c67ad42377.png)](https://gyazo.com/dab29553599a1366a9e573c67ad42377)
-
+You can play 5 rounds of the game against the computer.
+refresh to restart the game! 
+[![Image from Gyazo of the rock paper scissors game](https://i.gyazo.com/f284d3ed35d0c1eead10f894b5739a91.jpg)](https://gyazo.com/f284d3ed35d0c1eead10f894b5739a91)
